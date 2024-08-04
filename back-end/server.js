@@ -3,6 +3,7 @@ import 'dotenv/config';
 
 import userRouter from './routes/users.route.js';
 import bookRouter from './routes/books.route.js';
+import favouriteRouter from './routes/favourites.route.js';
 
 import connectDB from './connections/connect.js';
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use('/api/v1', userRouter);
 app.use('/api/v1', bookRouter);
+app.use('/api/v1', favouriteRouter);
 
 app.listen(port, (err) => {
   if (err) {

@@ -1,6 +1,6 @@
 import User from '../models/users.model.js';
 import Book from '../models/books.model.js';
-import authenticateToken from '../auth/usersAuth.auth.js';
+import authenticateToken from '../middlewares/usersAuth.auth.js';
 import express from 'express';
 const bookRouter = express.Router();
 
