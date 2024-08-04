@@ -4,12 +4,12 @@ import jwt from 'jsonwebtoken';
 import User from '../models/users.model.js';
 import authenticateToken from '../auth/usersAuth.auth.js';
 
-const router = express.Router();
+const userRouter = express.Router();
 
 const secretKey = process.env.SECRET_KEY;
 
 // signup
-router.post('/signup', async (req, res) => {
+userRouter.post('/signup', async (req, res) => {
   try {
     const {username, email, password, address} = req.body;
 
@@ -62,7 +62,7 @@ router.post('/signup', async (req, res) => {
 });
 
 // signin
-router.post('/signin', async (req, res) => {
+userRouter.post('/signin', async (req, res) => {
   try {
     const {username, password} = req.body;
 
@@ -97,7 +97,7 @@ router.post('/signin', async (req, res) => {
 });
 
 // get-user-info
-router.get('/get-user-info', authenticateToken, async (req, res) => {
+userRouter.get('/get-user-info', authenticateToken, async (req, res) => {
   try {
     const {id} = req.headers;
     const data = await User.findById(id).select('-password');
@@ -108,7 +108,7 @@ router.get('/get-user-info', authenticateToken, async (req, res) => {
 });
 
 // update address
-router.put('/update-address', authenticateToken, async (req, res) => {
+userRouter.put('/update-address', authenticateToken, async (req, res) => {
   try {
     const {id} = req.headers;
     const {address} = req.body;
@@ -118,4 +118,4 @@ router.put('/update-address', authenticateToken, async (req, res) => {
     res.status(500).json({message: `Internal server error`});
   }
 });
-export default router;
+export default userRouter;

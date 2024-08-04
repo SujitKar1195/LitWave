@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-
 const secretKey = process.env.SECRET_KEY;
 
 const authenticateToken = (req, res, next) => {
@@ -8,7 +7,6 @@ const authenticateToken = (req, res, next) => {
   if (token === null) {
     return res.status(401).json({message: 'Authentication token required.'});
   }
-
   jwt.verify(token, secretKey, (err, user) => {
     if (err)
       return res
