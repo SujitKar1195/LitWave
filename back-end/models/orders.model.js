@@ -4,12 +4,12 @@ const orderSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'users',
       required: true,
     },
     book: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Book',
+      ref: 'books',
       required: true,
     },
     status: {
@@ -21,5 +21,5 @@ const orderSchema = new mongoose.Schema(
   {timestamps: true}
 );
 
-const Order = mongoose.model('Order', orderSchema);
+const Order = mongoose.model('orders', orderSchema);
 module.exports = Order;

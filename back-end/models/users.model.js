@@ -32,21 +32,21 @@ const userSchema = new mongoose.Schema(
     favourites: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Book',
+        ref: 'books',
       },
     ],
     cart: [
       {
         book: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'Book',
+          ref: 'books',
         },
       },
     ],
     orders: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Order',
+        ref: 'order',
       },
     ],
   },
