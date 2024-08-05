@@ -22,12 +22,12 @@ favouriteRouter.put(
       });
       return res.status(200).json({message: 'Book added to favourites.'});
     } catch (error) {
-      res.status(500).json({message: 'Internal server error.'});
+      return res.status(500).json({message: 'Internal server error.'});
     }
   }
 );
 // remove book from favourites
-favouriteRouter.delete(
+favouriteRouter.put(
   '/remove-book-from-favourites',
   authenticateToken,
   async (req, res) => {
@@ -48,26 +48,25 @@ favouriteRouter.delete(
           .status(200)
           .json({message: 'Book is not present in favourites.'});
     } catch (error) {
-      res.status(500).json({message: 'Internal server error.'});
+      return res.status(500).json({message: 'Internal server error.'});
     }
   }
 );
 // get favourites book of a particular user
 favouriteRouter.get(
-  '/get-favourites-book',
+  '/get-favourite-books',
   authenticateToken,
   async (req, res) => {
     try {
       const {id} = req.headers;
       const userData = await User.findById(id).populate('favourites');
-      console.log(userData);
       const favouritesBook = userData.favourites;
       return res.status(200).json({
         status: 'success',
         data: favouritesBook,
       });
     } catch (error) {
-      res.status(500).json({message: 'Internal server error.'});
+      return res.status(500).json({message: 'Internal server error.'});
     }
   }
 );

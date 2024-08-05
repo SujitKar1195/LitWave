@@ -26,9 +26,9 @@ bookRouter.post('/add-book', authenticateToken, async (req, res) => {
       language: req.body.language,
     });
     await book.save();
-    res.status(200).json({message: 'Book added successfully.'});
+    return res.status(200).json({message: 'Book added successfully.'});
   } catch (err) {
-    res.status(500).json({message: `An error has occured.`});
+    return res.status(500).json({message: `An error has occured.`});
   }
 });
 
@@ -45,9 +45,9 @@ bookRouter.put('/update-book', authenticateToken, async (req, res) => {
       language: req.body.language,
     });
 
-    res.status(200).json({message: 'Book updated successfully!'});
+    return res.status(200).json({message: 'Book updated successfully!'});
   } catch (err) {
-    res.status(500).json({message: `An error has occured.`});
+    return res.status(500).json({message: `An error has occured.`});
   }
 });
 
@@ -57,9 +57,9 @@ bookRouter.delete('/delete-book', authenticateToken, async (req, res) => {
     const {bookid} = req.headers;
     await Book.findByIdAndDelete(bookid);
 
-    res.status(200).json({message: 'Book deleted successfully!'});
+    return res.status(200).json({message: 'Book deleted successfully!'});
   } catch (err) {
-    res.status(500).json({message: `An error has occured.`});
+    return res.status(500).json({message: `An error has occured.`});
   }
 });
 
@@ -72,7 +72,7 @@ bookRouter.get('/get-all-books', async (req, res) => {
       data: books,
     });
   } catch (error) {
-    res.status(500).json({message: `An error has occured.`});
+    return res.status(500).json({message: `An error has occured.`});
   }
 });
 
@@ -85,12 +85,13 @@ bookRouter.get('/get-recent-books', async (req, res) => {
       data: books,
     });
   } catch (error) {
-    res.status(500).json({message: `An error has occured.`});
+    return res.status(500).json({message: `An error has occured.`});
   }
 });
 
 //get book by id
 bookRouter.get('/get-book/:id', async (req, res) => {
+  return;
   try {
     const {id} = req.params;
     const book = await Book.findById(id);
@@ -99,7 +100,7 @@ bookRouter.get('/get-book/:id', async (req, res) => {
       data: book,
     });
   } catch (error) {
-    res.status(500).json({message: `An error has occured.`});
+    return res.status(500).json({message: `An error has occured.`});
   }
 });
 export default bookRouter;

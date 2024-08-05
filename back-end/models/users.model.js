@@ -37,16 +37,15 @@ const userSchema = new mongoose.Schema(
     ],
     cart: [
       {
-        book: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'books',
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'books',
       },
     ],
+
     orders: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'order',
+        ref: 'orders',
       },
     ],
   },

@@ -6,6 +6,7 @@ import bookRouter from './routes/books.route.js';
 import favouriteRouter from './routes/favourites.route.js';
 
 import connectDB from './connections/connect.js';
+import cartRouter from './routes/cart.route.js';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use('/api/v1', userRouter);
 app.use('/api/v1', bookRouter);
 app.use('/api/v1', favouriteRouter);
+app.use('/api/v1', cartRouter);
 
 app.listen(port, (err) => {
   if (err) {
