@@ -7,6 +7,7 @@ import favouriteRouter from './routes/favourites.route.js';
 
 import connectDB from './connections/connect.js';
 import cartRouter from './routes/cart.route.js';
+import orderRouter from './routes/orders.route.js';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -19,6 +20,7 @@ app.use('/api/v1', userRouter);
 app.use('/api/v1', bookRouter);
 app.use('/api/v1', favouriteRouter);
 app.use('/api/v1', cartRouter);
+app.use('/api/v1', orderRouter);
 
 app.listen(port, (err) => {
   if (err) {
