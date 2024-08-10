@@ -3,7 +3,7 @@ import axios from 'axios';
 import Loader from '../components/Loader/Loader';
 import BookCard from '../components/BookCard/BookCard';
 const AllBooks = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
@@ -16,9 +16,8 @@ const AllBooks = () => {
   }, []);
   return (
     <div className='bg-zinc-900 px-4'>
-      <h1 className='text-3xl text-yellow-100'>Books</h1>
       {!data && (
-        <div className='flex items-center justify-center my-8'>
+        <div className='h-screen flex items-center justify-center py-4'>
           {' '}
           <Loader />
         </div>
