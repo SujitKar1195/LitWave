@@ -1,5 +1,6 @@
 import express from 'express';
 import 'dotenv/config';
+import cors from 'cors';
 
 import userRouter from './routes/users.route.js';
 import bookRouter from './routes/books.route.js';
@@ -9,11 +10,17 @@ import connectDB from './connections/connect.js';
 import cartRouter from './routes/cart.route.js';
 import orderRouter from './routes/orders.route.js';
 
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  optionsSuccessStatus: 200,
+};
+
 const app = express();
 const port = process.env.PORT || 8080;
 
 connectDB();
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/v1', userRouter);

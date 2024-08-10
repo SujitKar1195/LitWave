@@ -91,7 +91,7 @@ bookRouter.get('/get-recent-books', async (req, res) => {
 
 //get book by id
 bookRouter.get('/get-book/:id', async (req, res) => {
-  return;
+
   try {
     const {id} = req.params;
     const book = await Book.findById(id);
