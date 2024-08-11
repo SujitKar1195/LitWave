@@ -15,6 +15,9 @@ import {authActions} from './features/auth/authSlice';
 import Favourites from './components/Profile/Favourites';
 import UserOrderHistory from './components/Profile/UserOrderHistory';
 import Settings from './components/Profile/Settings';
+import AllOrders from './pages/AllOrders';
+import AddBook from './pages/AddBook';
+import UpdateBook from './pages/UpdateBook';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -57,10 +60,23 @@ const App = () => {
           path='/profile'
           element={<Profile />}
         >
-          <Route
-            index
-            element={<Favourites />}
-          />
+          {role === 'user' ? (
+            <Route
+              index
+              element={<Favourites />}
+            />
+          ) : (
+            <Route
+              index
+              element={<AllOrders />}
+            />
+          )}
+          {role === 'admin' && (
+            <Route
+              path='/profile/add-book'
+              element={<AddBook />}
+            />
+          )}
           <Route
             path='/profile/orderHistory'
             element={<UserOrderHistory />}
@@ -73,6 +89,10 @@ const App = () => {
         <Route
           path='/book/:id'
           element={<ViewBook />}
+        />
+        <Route
+          path='/updateBook/:id'
+          element={<UpdateBook />}
         />
       </Routes>
       <Footer />

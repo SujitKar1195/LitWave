@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate, Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useSelector} from 'react-redux';
@@ -13,6 +13,7 @@ const ViewBook = () => {
   const [data, setData] = useState();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
@@ -47,6 +48,13 @@ const ViewBook = () => {
     );
     alert(response.data.message);
   };
+  const handleDelete = async () => {
+    const res = await axios.delete('http://localhost:8080/api/v1/delete-book', {
+      headers,
+    });
+    alert(res.data.message);
+    navigate('/all-books');
+  };
 
   return (
     <>
@@ -78,10 +86,16 @@ const ViewBook = () => {
               )}
               {isLoggedIn === true && role === 'admin' && (
                 <div className='flex  items-center justify-center gap-4 lg:justify-start flex-row lg:flex-col mt-4 lg:mt-0'>
-                  <button className=' bg-blue-500  text-zinc-50  rounded-full text-3xl p-2 '>
+                  <Link
+                    to={`/updateBook/${id}`}
+                    className=' bg-blue-500  text-zinc-50  rounded-full text-3xl p-2 '
+                  >
                     <CiEdit />
-                  </button>
-                  <button className=' bg-zinc-100 text-red-700 rounded-full text-3xl p-2 mt-0 lg:mt-4'>
+                  </Link>
+                  <button
+                    className=' bg-zinc-100 text-red-700 rounded-full text-3xl p-2 mt-0 lg:mt-4'
+                    onClick={handleDelete}
+                  >
                     {' '}
                     <MdDelete />{' '}
                   </button>

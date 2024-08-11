@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import BookCard from '../BookCard/BookCard';
 import {IoHeartDislikeCircleOutline} from 'react-icons/io5';
+import Loader from '../Loader/Loader';
 const Favourites = () => {
   const [favouriteBooks, setFavouriteBooks] = useState([]);
 
@@ -18,11 +19,17 @@ const Favourites = () => {
       setFavouriteBooks(response.data.data);
     };
     fetch();
-  }, [favouriteBooks]);
+  }, []);
 
   return (
     <>
-      {favouriteBooks.length === 0 && (
+      {!favouriteBooks && (
+        <div className='bg-zinc-900 flex items-center justify-center h-[100%]'>
+          <Loader className='text-4xl' />
+        </div>
+      )}
+
+      {favouriteBooks && favouriteBooks.length === 0 && (
         <>
           <div className='text-4xl font-semibold text-zinc-300 flex flex-col items-center justify-center '>
             <p>No favourite books</p>

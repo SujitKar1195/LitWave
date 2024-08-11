@@ -10,6 +10,7 @@ import {IoHomeOutline} from 'react-icons/io5';
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const role = useSelector((state) => state.auth.role);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,9 +32,19 @@ const Navbar = () => {
       title: 'Profile',
       link: '/profile',
     },
+    {
+      title: 'Admin Profile',
+      link: '/profile',
+    },
   ];
   if (isLoggedIn === false) {
     links.splice(2, 3);
+  }
+  if (isLoggedIn === true && role === 'user') {
+    links.splice(4, 1);
+  }
+  if (isLoggedIn === true && role === 'admin') {
+    links.splice(3, 1);
   }
 
   const toggleMenu = () => {
