@@ -22,11 +22,12 @@ orderRouter.post('/place-order', authenticateToken, async (req, res) => {
       await User.findByIdAndUpdate(id, {
         $pull: {cart: orderData._id},
       });
-
-      return res
-        .status(200)
-        .json({status: 'success', message: 'Order placed successfully.'});
     }
+
+    return res
+      .status(200)
+      .json({status: 'success', message: 'Order placed successfully.'});
+    
   } catch (error) {
     return res.status(500).json({message: 'An error occured.'});
   }
