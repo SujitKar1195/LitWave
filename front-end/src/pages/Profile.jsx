@@ -30,7 +30,7 @@ const Profile = () => {
         </div>
       ) : (
         <>
-          <div className='w-full h-[40vh] md:h-[40vh] lg:h-screen  lg:w-1/6'>
+          <div className='w-full h-[60vh] md:h-[80vh] lg:h-screen  lg:w-1/6'>
             <Sidebar data={profile} />
           </div>
           <div className='w-full md:w-5/6'>

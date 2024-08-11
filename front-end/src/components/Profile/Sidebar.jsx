@@ -1,8 +1,7 @@
 import {Link} from 'react-router-dom';
-import {IoLogOutOutline} from 'react-icons/io5';
 const Sidebar = ({data}) => {
   return (
-    <div className='bg-zinc-800 p-4 rounded-md flex flex-col items-center justify-between h-[90%]'>
+    <div className='bg-zinc-800 p-4 rounded-md flex flex-col items-center justify-center h-[90%]'>
       <div className='flex items-center justify-center flex-col'>
         <img
           src={data.avatar}
@@ -15,7 +14,7 @@ const Sidebar = ({data}) => {
         <p className='mt-1 text-normal  text-blue-400'>{data.email}</p>
         <div className='w-full  mt-4 h-[1px] bg-zinc-500 hidden lg:block'></div>
       </div>
-      <div>
+      <div className=''>
         <div className='w-full flex flex-col items-center justify-center'>
           <Link
             to={'/profile'}
@@ -36,11 +35,10 @@ const Sidebar = ({data}) => {
             Settings
           </Link>
         </div>
+        <button className='w-full mt-4 lg:mt-0  font-semibold  text-red-500 transition-all duration-300 bg-zinc-900 py-3 rounded-md hover:bg-red-700 hover:text-white'>
+          Log Out
+        </button>
       </div>
-      <button className='w-3/6 lg:w-full mt-4 lg:mt-0  font-semibold flex flex-col items-center justify-center text-red-500 transition-all duration-300 bg-zinc-900 py-3 rounded-md hover:bg-red-700 hover:text-white'>
-        Log Out
-        <IoLogOutOutline className='ms-4 text-3xl ' />
-      </button>
     </div>
   );
 };
