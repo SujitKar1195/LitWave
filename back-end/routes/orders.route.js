@@ -1,5 +1,5 @@
 import authenticateToken from '../middlewares/usersAuth.auth.js';
-import Book from '../models/books.model.js';
+
 import Order from '../models/orders.model.js';
 import User from '../models/users.model.js';
 import express from 'express';
@@ -39,7 +39,7 @@ orderRouter.get('/get-order-history', authenticateToken, async (req, res) => {
     const {id} = req.headers;
     const userData = await User.findById(id).populate({
       path: 'orders',
-      populate: {path: 'books'},
+      populate: {path: 'book'},
     });
     const orderData = userData.orders.reverse();
     return res.status(200).json({status: 'success', data: orderData});
@@ -52,8 +52,8 @@ orderRouter.get('/get-order-history', authenticateToken, async (req, res) => {
 orderRouter.get('/get-all-orders', authenticateToken, async (req, res) => {
   try {
     const userData = await Order.find()
-      .populate({path: 'books'})
-      .populate({path: 'users'})
+      .populate({path: 'book'})
+      .populate({path: 'user'})
       .sort({createdAt: -1});
     return res.status(200).json({status: 'success', data: userData});
   } catch (error) {
