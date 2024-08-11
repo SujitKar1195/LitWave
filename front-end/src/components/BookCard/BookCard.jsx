@@ -1,10 +1,24 @@
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+const BookCard = ({data, favourite}) => {
+  const headers = {
+    id: localStorage.getItem('id'),
+    authorization: `Bearer ${localStorage.getItem('token')}`,
+    bookid: data._id,
+  };
 
-const BookCard = ({data}) => {
+  const handleRemoveBook = async () => {
+    const response = await axios.put(
+      'http://localhost:8080/api/v1/remove-book-from-favourites',
+      {},
+      {headers}
+    );
+    alert(response.data.message);
+  };
   return (
-    <>
+    <div className='bg-zinc-800 rounded-md p-4'>
       <Link to={`/book/${data._id}`}>
-        <div className='bg-zinc-800 rounded-md p-4 flex flex-col'>
+        <div className=''>
           <div className='bg-zinc-900 rounded-md flex items-center justify-center'>
             <img
               className='h-[25vh] rounded-md'
@@ -17,7 +31,15 @@ const BookCard = ({data}) => {
           <p className='mt-2 text-zinc-100 text-sm'>₹ {data.price}</p>
         </div>
       </Link>
-    </>
+      {favourite && (
+        <button
+          className='bg-red-800 text-white text-xl rounded-md px-4 py-2 font-sans font-normal mt-4'
+          onClick={handleRemoveBook}
+        >
+          Remove from Favourites
+        </button>
+      )}
+    </div>
   );
 };
 

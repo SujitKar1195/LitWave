@@ -3,7 +3,7 @@ import Reading from '../../assets/side.png';
 import {Link} from 'react-router-dom';
 const Hero = () => {
   return (
-    <div className='h-[79.5vh] flex flex-col md:flex-row items-center justify-center '>
+    <div className='h-screen flex flex-col md:flex-row items-center justify-center '>
       <div className='w-full px-8 mb-12 md:mb-0 lg:w-3/6 flex flex-col items-center lg:items-start justify-center'>
         <div className='text-4xl lg:text-6xl font-semibold text-yellow-300 text-center lg:text-left'>
           Discover Your Next Great Read

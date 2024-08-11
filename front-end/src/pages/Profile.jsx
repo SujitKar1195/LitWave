@@ -7,6 +7,7 @@ import Loader from '../components/Loader/Loader';
 
 const Profile = () => {
   const [profile, setProfile] = useState();
+  
   const headers = {
     id: localStorage.getItem('id'),
     authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -22,14 +23,14 @@ const Profile = () => {
     fetch();
   }, []);
   return (
-    <div className='bg-zinc-900 px-2 md:px-12 flex flex-col md:flex-row h-screen py-8 text-white gap-4'>
+    <div className='bg-zinc-900 px-2 md:px-12 flex flex-col lg:flex-row h-screen py-8 text-white gap-4'>
       {!profile ? (
         <div className='w-full h-[100%] flex items-center justify-center'>
           <Loader />
         </div>
       ) : (
         <>
-          <div className='w-full md:w-1/6'>
+          <div className='w-full h-[40vh] md:h-[40vh] lg:h-screen  lg:w-1/6'>
             <Sidebar data={profile} />
           </div>
           <div className='w-full md:w-5/6'>
