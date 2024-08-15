@@ -4,12 +4,12 @@ const orderSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'users',
+      ref: 'User',
       required: true,
     },
     book: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'books',
+      ref: 'Book',
       required: true,
     },
     status: {
@@ -17,9 +17,10 @@ const orderSchema = new mongoose.Schema(
       enum: ['Order Placed', 'Out for Delivery', 'Delivered', 'Cancelled'],
       default: 'Order Placed',
     },
+    createdAt: {type: Date, default: Date.now},
   },
   {timestamps: true}
 );
 
-const Order = mongoose.model('orders', orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 export default Order;
