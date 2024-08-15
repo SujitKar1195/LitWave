@@ -38,13 +38,13 @@ const Navbar = () => {
     },
   ];
   if (isLoggedIn === false) {
-    links.splice(2, 3);
+    links.splice(2, 4);
   }
   if (isLoggedIn === true && role === 'user') {
     links.splice(4, 1);
   }
   if (isLoggedIn === true && role === 'admin') {
-    links.splice(3, 1);
+    links.splice(2, 2);
   }
 
   const toggleMenu = () => {
