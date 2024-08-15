@@ -17,7 +17,6 @@ const orderSchema = new mongoose.Schema(
       enum: ['Order Placed', 'Out for Delivery', 'Delivered', 'Cancelled'],
       default: 'Order Placed',
     },
-    createdAt: {type: Date, default: Date.now},
   },
   {timestamps: true}
 );

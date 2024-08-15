@@ -52,7 +52,7 @@ orderRouter.get('/get-order-history', authenticateToken, async (req, res) => {
 orderRouter.get('/get-all-orders', authenticateToken, async (req, res) => {
   try {
     
-    const userData = await Order.find({})
+    const userData = await Order.find()
       .populate({path: 'book'})
       .populate({path: 'user'})
       .sort({createdAt: -1});
