@@ -15,7 +15,7 @@ const Cart = () => {
   useEffect(() => {
     const fetch = async () => {
       const res = await axios.get(
-        'http://localhost:8080/api/v1/get-cart-book',
+        'https://lit-wave.vercel.app/api/v1/get-cart-book',
         {headers}
       );
       setCart(res.data.data);
@@ -34,7 +34,7 @@ const Cart = () => {
   const deleteItem = async (id) => {
     headers.bookid = id;
     const res = await axios.put(
-      'http://localhost:8080/api/v1/remove-book-from-cart',
+      'https://lit-wave.vercel.app/api/v1/remove-book-from-cart',
       {},
       {headers}
     );
@@ -43,7 +43,7 @@ const Cart = () => {
   const placeOrder = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:8080/api/v1/place-order',
+        'https://lit-wave.vercel.app/api/v1/place-order',
         {
           order: cart,
         },

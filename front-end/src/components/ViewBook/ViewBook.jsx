@@ -17,7 +17,7 @@ const ViewBook = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:8080/api/v1/get-book/${id}`
+        `https://lit-wave.vercel.app/api/v1/get-book/${id}`
       );
       const fetchedData = response.data;
       setData(fetchedData.data);
@@ -34,7 +34,7 @@ const ViewBook = () => {
 
   const handleFavourite = async () => {
     const response = await axios.put(
-      'http://localhost:8080/api/v1/add-book-to-favourites',
+      'https://lit-wave.vercel.app/api/v1/add-book-to-favourites',
       {},
       {headers}
     );
@@ -42,16 +42,19 @@ const ViewBook = () => {
   };
   const handleCart = async () => {
     const response = await axios.put(
-      'http://localhost:8080/api/v1/add-to-cart',
+      'https://lit-wave.vercel.app/api/v1/add-to-cart',
       {},
       {headers}
     );
     alert(response.data.message);
   };
   const handleDelete = async () => {
-    const res = await axios.delete('http://localhost:8080/api/v1/delete-book', {
-      headers,
-    });
+    const res = await axios.delete(
+      'https://lit-wave.vercel.app/api/v1/delete-book',
+      {
+        headers,
+      }
+    );
     alert(res.data.message);
     navigate('/all-books');
   };

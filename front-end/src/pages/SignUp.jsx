@@ -28,7 +28,7 @@ const SignUp = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:8080/api/v1/signup',
+        'https://lit-wave.vercel.app/api/v1/signup',
         values
       );
       navigate('/login');

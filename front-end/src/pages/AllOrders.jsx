@@ -20,7 +20,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       const res = await axios.get(
-        'http://localhost:8080/api/v1/get-all-orders',
+        'https://lit-wave.vercel.app/api/v1/get-all-orders',
         {
           headers,
         }
@@ -40,7 +40,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
     const response = await axios.put(
-      `http://localhost:8080/api/v1/update-status/${id}`,
+      `https://lit-wave.vercel.app/api/v1/update-status/${id}`,
       values,
       {headers}
     );
