@@ -14,14 +14,10 @@ const Cart = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-<<<<<<< HEAD
-      const res = await axios.get('/api/v1/get-cart-book', {headers});
-=======
       const res = await axios.get(
-        'https://lit-wave.vercel.app/api/v1/get-cart-book',
+        'http://localhost:8080/api/v1/get-cart-book',
         {headers}
       );
->>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       setCart(res.data.data);
     };
     fetch();
@@ -37,25 +33,17 @@ const Cart = () => {
 
   const deleteItem = async (id) => {
     headers.bookid = id;
-<<<<<<< HEAD
-    const res = await axios.put('/api/v1/remove-book-from-cart', {}, {headers});
-=======
     const res = await axios.put(
-      'https://lit-wave.vercel.app/api/v1/remove-book-from-cart',
+      'http://localhost:8080/api/v1/remove-book-from-cart',
       {},
       {headers}
     );
->>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
     alert(res.data.message);
   };
   const placeOrder = async () => {
     try {
       const res = await axios.post(
-<<<<<<< HEAD
-        '/api/v1/place-order',
-=======
-        'https://lit-wave.vercel.app/api/v1/place-order',
->>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
+        'http://localhost:8080/api/v1/place-order',
         {
           order: cart,
         },

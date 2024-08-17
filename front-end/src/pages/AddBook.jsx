@@ -29,15 +29,7 @@ const AddBook = () => {
       ) {
         alert('All fields are required.');
       } else {
-<<<<<<< HEAD
-        const res = await axios.post('/api/v1/add-book', data, {headers});
-=======
-        const res = await axios.post(
-          'https://lit-wave.vercel.app/api/v1/add-book',
-          data,
-          {headers}
-        );
->>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
+        const res = await axios.post('http://localhost:8080/api/v1/add-book', data, {headers});
         setData({
           url: '',
           title: '',

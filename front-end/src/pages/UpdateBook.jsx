@@ -33,15 +33,11 @@ const UpdateBook = () => {
       ) {
         alert('All fields are required.');
       } else {
-<<<<<<< HEAD
-        const res = await axios.put('/api/v1/update-book', data, {headers});
-=======
         const res = await axios.put(
-          'https://lit-wave.vercel.app/api/v1/update-book',
+          'http://localhost:8080/api/v1/update-book',
           data,
           {headers}
         );
->>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
         setData({
           url: '',
           title: '',
@@ -60,13 +56,9 @@ const UpdateBook = () => {
 
   useEffect(() => {
     const fetch = async () => {
-<<<<<<< HEAD
-      const response = await axios.get(`/api/v1/get-book/${id}`);
-=======
       const response = await axios.get(
-        `https://lit-wave.vercel.app/api/v1/get-book/${id}`
+        `http://localhost:8080/api/v1/get-book/${id}`
       );
->>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       const fetchedData = response.data;
       setData(fetchedData.data);
       //console.log(data);
