@@ -11,8 +11,8 @@ import cartRouter from './routes/cart.route.js';
 import orderRouter from './routes/orders.route.js';
 
 const corsOptions = {
-  origin: 'http://localhost:5173',
-  optionsSuccessStatus: 200,
+  origin: process.env.ORIGIN_URI,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 };
 
 const app = express();
