@@ -11,7 +11,7 @@ import cartRouter from './routes/cart.route.js';
 import orderRouter from './routes/orders.route.js';
 
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://litwave.netlify.app',
   optionsSuccessStatus: 200,
 };
 
