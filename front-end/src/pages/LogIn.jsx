@@ -23,7 +23,14 @@ const LogIn = () => {
         return;
       }
 
+<<<<<<< HEAD
       const response = await axios.post('/api/v1/login', values);
+=======
+      const response = await axios.post(
+        'https://lit-wave.vercel.app/api/v1/login',
+        values
+      );
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       dispatch(authActions.login());
       dispatch(authActions.changeRole(response.data.role));
       localStorage.setItem('id', response.data.id);

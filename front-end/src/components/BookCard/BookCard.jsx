@@ -10,7 +10,11 @@ const BookCard = ({data, favourite}) => {
 
   const handleRemoveBook = async () => {
     const response = await axios.put(
+<<<<<<< HEAD
       '/api/v1/remove-book-from-favourites',
+=======
+      'https://lit-wave.vercel.app/api/v1/remove-book-from-favourites',
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       {},
       {headers}
     );

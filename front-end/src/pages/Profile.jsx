@@ -16,7 +16,11 @@ const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
+<<<<<<< HEAD
         '/api/v1/get-user-info',
+=======
+        'https://lit-wave.vercel.app/api/v1/get-user-info',
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
         {headers}
       );
       setProfile(response.data);
