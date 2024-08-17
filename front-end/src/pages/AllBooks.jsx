@@ -1,13 +1,13 @@
 import {useState, useEffect} from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import Loader from '../components/Loader/Loader';
 import BookCard from '../components/BookCard/BookCard';
 const AllBooks = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        'http://localhost:8080/api/v1/get-all-books'
+        '/api/v1/get-all-books'
       );
       const fetchedData = response.data;
       setData(fetchedData.data);
@@ -29,7 +29,10 @@ const AllBooks = () => {
               key={i}
               className='transform transition-transform duration-300 hover:scale-105'
             >
-              <BookCard data={item} />{' '}
+              <BookCard
+                key={i + 99}
+                data={item}
+              />{' '}
             </div>
           ))}
       </div>

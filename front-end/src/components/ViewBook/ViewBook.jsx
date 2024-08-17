@@ -1,6 +1,6 @@
 import {useParams, useNavigate, Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import axios from 'axios';
+import axios from '../../api/axios';
 import {useSelector} from 'react-redux';
 import {GrLanguage} from 'react-icons/gr';
 import Loader from '../Loader/Loader';
@@ -16,9 +16,7 @@ const ViewBook = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        `http://localhost:8080/api/v1/get-book/${id}`
-      );
+      const response = await axios.get(`/api/v1/get-book/${id}`);
       const fetchedData = response.data;
       setData(fetchedData.data);
       //console.log(data);
@@ -34,22 +32,18 @@ const ViewBook = () => {
 
   const handleFavourite = async () => {
     const response = await axios.put(
-      'http://localhost:8080/api/v1/add-book-to-favourites',
+      '/api/v1/add-book-to-favourites',
       {},
       {headers}
     );
     alert(response.data.message);
   };
   const handleCart = async () => {
-    const response = await axios.put(
-      'http://localhost:8080/api/v1/add-to-cart',
-      {},
-      {headers}
-    );
+    const response = await axios.put('/api/v1/add-to-cart', {}, {headers});
     alert(response.data.message);
   };
   const handleDelete = async () => {
-    const res = await axios.delete('http://localhost:8080/api/v1/delete-book', {
+    const res = await axios.delete('/api/v1/delete-book', {
       headers,
     });
     alert(res.data.message);

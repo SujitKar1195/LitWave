@@ -1,19 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import axios from '../../api/axios';
 import {Link} from 'react-router-dom';
 import Loader from '../Loader/Loader';
 const UserOrderHistory = () => {
-  const [orderHistory, setOrderHistory] = useState();
+  const [orderHistory, setOrderHistory] = useState([]);
   const headers = {
     id: localStorage.getItem('id'),
     authorization: `Bearer ${localStorage.getItem('token')}`,
   };
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(
-        'http://localhost:8080/api/v1/get-order-history',
-        {headers}
-      );
+      const res = await axios.get('/api/v1/get-order-history', {headers});
       setOrderHistory(res.data.data);
     };
     fetch();
@@ -64,7 +61,10 @@ const UserOrderHistory = () => {
             </div>
           </div>
           {orderHistory.map((item, i) => (
-            <div className='mt-4 bg-zinc-800 w-full  rounded py-2 px-4 flex gap-2'>
+            <div
+              key={i}
+              className='mt-4 bg-zinc-800 w-full  rounded py-2 px-4 flex gap-2'
+            >
               <div className='w-[3%]'>
                 <h1 className='text-center'>{i + 1}</h1>
               </div>

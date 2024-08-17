@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 const SignUp = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState({
@@ -28,7 +28,7 @@ const SignUp = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:8080/api/v1/signup',
+        '/api/v1/signup',
         values
       );
       navigate('/login');

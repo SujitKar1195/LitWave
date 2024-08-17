@@ -1,15 +1,13 @@
 import {useEffect, useState} from 'react';
-import axios from 'axios';
+import axios from '../../api/axios';
 import BookCard from '../BookCard/BookCard';
 import Loader from '../../components/Loader/Loader';
 const RecentlyAdded = () => {
-  const [data, setData] = useState();
-  
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        'http://localhost:8080/api/v1/get-recent-books'
-      );
+      const response = await axios.get('/api/v1/get-recent-books');
 
       const fetchedData = response.data;
       setData(fetchedData.data);

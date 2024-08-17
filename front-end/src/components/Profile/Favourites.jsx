@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import axios from '../../api/axios';
 import BookCard from '../BookCard/BookCard';
 import {IoHeartDislikeCircleOutline} from 'react-icons/io5';
 import Loader from '../Loader/Loader';
@@ -13,7 +13,7 @@ const Favourites = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        'http://localhost:8080/api/v1/get-favourite-books',
+        '/api/v1/get-favourite-books',
 
         {headers}
       );

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../api/axios';
 import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {FaCheck, FaUser} from 'react-icons/fa';
@@ -8,7 +8,7 @@ import SeeUserData from './SeeUserData';
 
 const AllOrders = () => {
   const [option, setOption] = useState(-1);
-  const [values, setValues] = useState({status: ''});
+  const [values, setValues] = useState({status: 'Order Placed'});
   const [allOrders, setAllOrders] = useState();
   const [userDiv, setUserDiv] = useState('hidden');
   const [userDivData, setUserDivData] = useState();
@@ -19,7 +19,7 @@ const AllOrders = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get('http://localhost:8080/api/v1/get-all-orders', {
+      const res = await axios.get('/api/v1/get-all-orders', {
         headers,
       });
       setAllOrders(res.data.data);
@@ -36,7 +36,7 @@ const AllOrders = () => {
   };
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
-    const response = await axios.put(`http://localhost:8080/api/v1/update-status/${id}`, values, {
+    const response = await axios.put(`/api/v1/update-status/${id}`, values, {
       headers,
     });
     alert(response.data.message);

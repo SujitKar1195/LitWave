@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 import Loader from '../components/Loader/Loader';
 import {LiaCartArrowDownSolid} from 'react-icons/lia';
 import {MdDelete} from 'react-icons/md';
 const Cart = () => {
   const navigate = useNavigate();
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const headers = {
     id: localStorage.getItem('id'),
@@ -15,7 +15,7 @@ const Cart = () => {
   useEffect(() => {
     const fetch = async () => {
       const res = await axios.get(
-        'http://localhost:8080/api/v1/get-cart-book',
+        '/api/v1/get-cart-book',
         {headers}
       );
       setCart(res.data.data);
@@ -34,7 +34,7 @@ const Cart = () => {
   const deleteItem = async (id) => {
     headers.bookid = id;
     const res = await axios.put(
-      'http://localhost:8080/api/v1/remove-book-from-cart',
+      '/api/v1/remove-book-from-cart',
       {},
       {headers}
     );
@@ -43,7 +43,7 @@ const Cart = () => {
   const placeOrder = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:8080/api/v1/place-order',
+        '/api/v1/place-order',
         {
           order: cart,
         },

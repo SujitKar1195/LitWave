@@ -1,6 +1,6 @@
 import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import {authActions} from '../features/auth/authSlice';
 import {useDispatch} from 'react-redux';
 const LogIn = () => {
@@ -22,7 +22,7 @@ const LogIn = () => {
         alert('All fields are required.');
         return;
       }
-      const response = await axios.post('http://localhost:8080/api/v1/login', values);
+      const response = await axios.post('/api/v1/login', values);
       dispatch(authActions.login());
       dispatch(authActions.changeRole(response.data.role));
       localStorage.setItem('id', response.data.id);

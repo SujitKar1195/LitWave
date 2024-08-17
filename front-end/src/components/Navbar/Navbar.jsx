@@ -16,27 +16,32 @@ const Navbar = () => {
 
   const links = [
     {
+      id: 1,
       title: 'Home',
       link: '/',
     },
-
     {
+      id: 2,
       title: 'All Books',
       link: '/all-books',
     },
     {
+      id: 3,
       title: 'Cart',
       link: '/cart',
     },
     {
+      id: 4,
       title: 'Profile',
       link: '/profile',
     },
     {
+      id: 5,
       title: 'Admin Profile',
       link: '/profile',
     },
   ];
+
   if (isLoggedIn === false) {
     links.splice(2, 4);
   }
@@ -75,14 +80,13 @@ const Navbar = () => {
       <div
         className={`nav-link-litwave flex flex-col md:flex-row gap-4 mt-4 md:mt-0 w-full md:w-auto ${
           isMenuOpen ? 'block' : 'hidden'
-        } md:flex  transition-all duration-300`}
+        } md:flex transition-all duration-300`}
       >
-        {links.map((item, i) => (
-          <>
+        {links.map((item) => (
+          <div key={item.id}>
             {item.title === 'Profile' ? (
               <Link
                 to={item.link}
-                key={i}
                 className='px-2 py-2 flex justify-center'
               >
                 <CgProfile className='text-6xl w-6 h-6 text-blue-700 hover:text-green-500 transition-all text-center' />
@@ -90,8 +94,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to={item.link}
-                key={i}
-                className='px-2 py-2 hover:bg-green-500 transition-all duration-300 select-none rounded-lg text-center  font-sans font-bold text-white flex justify-center'
+                className='px-2 py-2 hover:bg-green-500 transition-all duration-300 select-none rounded-lg text-center font-sans font-bold text-white flex justify-center'
               >
                 {item.title === 'Cart' ? (
                   <CiShoppingCart className='text-6xl w-6 h-6 text-purple-200 transition-all text-center' />
@@ -101,10 +104,10 @@ const Navbar = () => {
                   <IoHomeOutline className='text-6xl w-6 h-6 text-purple-200 transition-all text-center' />
                 ) : (
                   item.title
-                )}{' '}
+                )}
               </Link>
             )}
-          </>
+          </div>
         ))}
 
         {isLoggedIn === false && (
