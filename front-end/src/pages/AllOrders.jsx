@@ -2,12 +2,16 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {FaCheck, FaUser} from 'react-icons/fa';
+import {IoOpenOutline} from 'react-icons/io5';
 import Loader from '../components/Loader/Loader';
+import SeeUserData from './SeeUserData';
 
 const AllOrders = () => {
   const [option, setOption] = useState(-1);
   const [values, setValues] = useState({status: ''});
   const [allOrders, setAllOrders] = useState();
+  const [userDiv, setUserDiv] = useState('hidden');
+  const [userDivData, setUserDivData] = useState();
 
   const headers = {
     id: localStorage.getItem('id'),
@@ -150,13 +154,28 @@ const AllOrders = () => {
                   </h1>
                 </div>
                 <div className='w-[10%] md:w-[5%] hover:cursor-pointer'>
-                  <h1 className=''>COD</h1>
+                  <button
+                    className='text-xl hover:text-orange-500'
+                    onClick={() => {
+                      setUserDiv('fixed');
+                      setUserDivData(item.user);
+                    }}
+                  >
+                    <IoOpenOutline />
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         )}
       </div>
+      {userDivData && (
+        <SeeUserData
+          userDivData={userDivData}
+          userDiv={userDiv}
+          setUserDiv={setUserDiv}
+        />
+      )}
     </>
   );
 };
