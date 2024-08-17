@@ -19,12 +19,18 @@ const AllOrders = () => {
   };
   useEffect(() => {
     const fetch = async () => {
+<<<<<<< HEAD
+      const res = await axios.get('/api/v1/get-all-orders', {
+        headers,
+      });
+=======
       const res = await axios.get(
-        'http://localhost:8080/api/v1/get-all-orders',
+        'https://lit-wave.vercel.app/api/v1/get-all-orders',
         {
           headers,
         }
       );
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       setAllOrders(res.data.data);
     };
     fetch();
@@ -39,11 +45,17 @@ const AllOrders = () => {
   };
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
+<<<<<<< HEAD
+    const response = await axios.put(`/api/v1/update-status/${id}`, values, {
+      headers,
+    });
+=======
     const response = await axios.put(
-      `http://localhost:8080/api/v1/update-status/${id}`,
+      `https://lit-wave.vercel.app/api/v1/update-status/${id}`,
       values,
       {headers}
     );
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
     alert(response.data.message);
   };
 

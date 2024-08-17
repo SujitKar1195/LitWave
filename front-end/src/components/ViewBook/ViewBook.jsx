@@ -16,9 +16,13 @@ const ViewBook = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const fetch = async () => {
+<<<<<<< HEAD
+      const response = await axios.get(`/api/v1/get-book/${id}`);
+=======
       const response = await axios.get(
-        `http://localhost:8080/api/v1/get-book/${id}`
+        `https://lit-wave.vercel.app/api/v1/get-book/${id}`
       );
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       const fetchedData = response.data;
       setData(fetchedData.data);
       //console.log(data);
@@ -34,24 +38,41 @@ const ViewBook = () => {
 
   const handleFavourite = async () => {
     const response = await axios.put(
-      'http://localhost:8080/api/v1/add-book-to-favourites',
+<<<<<<< HEAD
+      '/api/v1/add-book-to-favourites',
+=======
+      'https://lit-wave.vercel.app/api/v1/add-book-to-favourites',
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       {},
       {headers}
     );
     alert(response.data.message);
   };
   const handleCart = async () => {
+<<<<<<< HEAD
+    const response = await axios.put('/api/v1/add-to-cart', {}, {headers});
+    alert(response.data.message);
+  };
+  const handleDelete = async () => {
+    const res = await axios.delete('/api/v1/delete-book', {
+      headers,
+    });
+=======
     const response = await axios.put(
-      'http://localhost:8080/api/v1/add-to-cart',
+      'https://lit-wave.vercel.app/api/v1/add-to-cart',
       {},
       {headers}
     );
     alert(response.data.message);
   };
   const handleDelete = async () => {
-    const res = await axios.delete('http://localhost:8080/api/v1/delete-book', {
-      headers,
-    });
+    const res = await axios.delete(
+      'https://lit-wave.vercel.app/api/v1/delete-book',
+      {
+        headers,
+      }
+    );
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
     alert(res.data.message);
     navigate('/all-books');
   };

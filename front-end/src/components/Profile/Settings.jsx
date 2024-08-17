@@ -20,7 +20,11 @@ const Settings = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        'http://localhost:8080/api/v1/get-user-info',
+<<<<<<< HEAD
+        '/api/v1/get-user-info',
+=======
+        'https://lit-wave.vercel.app/api/v1/get-user-info',
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
         {headers}
       );
       setProfileData(response.data);
@@ -31,7 +35,11 @@ const Settings = () => {
 
   const handleUpdate = async () => {
     const res = await axios.put(
-      'http://localhost:8080/api/v1/update-address',
+<<<<<<< HEAD
+      '/api/v1/update-address',
+=======
+      'https://lit-wave.vercel.app/api/v1/update-address',
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       Value,
       {
         headers,

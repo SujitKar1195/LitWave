@@ -7,9 +7,13 @@ const RecentlyAdded = () => {
   
   useEffect(() => {
     const fetch = async () => {
+<<<<<<< HEAD
+      const response = await axios.get('/api/v1/get-recent-books');
+=======
       const response = await axios.get(
-        'http://localhost:8080/api/v1/get-recent-books'
+        'https://lit-wave.vercel.app/api/v1/get-recent-books'
       );
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       const fetchedData = response.data;
       setData(fetchedData.data);
     };

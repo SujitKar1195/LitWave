@@ -7,7 +7,11 @@ const AllBooks = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        'http://localhost:8080/api/v1/get-all-books'
+<<<<<<< HEAD
+        '/api/v1/get-all-books'
+=======
+        'https://lit-wave.vercel.app/api/v1/get-all-books'
+>>>>>>> b8cfea23ed5eea38e72d8e30e2bb643b5b5ac7ca
       );
       const fetchedData = response.data;
       setData(fetchedData.data);
