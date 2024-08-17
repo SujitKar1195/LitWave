@@ -19,12 +19,9 @@ const AllOrders = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(
-        'http://localhost:8080/api/v1/get-all-orders',
-        {
-          headers,
-        }
-      );
+      const res = await axios.get('/api/v1/get-all-orders', {
+        headers,
+      });
       setAllOrders(res.data.data);
     };
     fetch();
@@ -39,11 +36,9 @@ const AllOrders = () => {
   };
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
-    const response = await axios.put(
-      `http://localhost:8080/api/v1/update-status/${id}`,
-      values,
-      {headers}
-    );
+    const response = await axios.put(`/api/v1/update-status/${id}`, values, {
+      headers,
+    });
     alert(response.data.message);
   };
 

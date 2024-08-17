@@ -20,7 +20,7 @@ const Settings = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        'http://localhost:8080/api/v1/get-user-info',
+        '/api/v1/get-user-info',
         {headers}
       );
       setProfileData(response.data);
@@ -31,7 +31,7 @@ const Settings = () => {
 
   const handleUpdate = async () => {
     const res = await axios.put(
-      'http://localhost:8080/api/v1/update-address',
+      '/api/v1/update-address',
       Value,
       {
         headers,

@@ -10,10 +10,7 @@ const UserOrderHistory = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(
-        'http://localhost:8080/api/v1/get-order-history',
-        {headers}
-      );
+      const res = await axios.get('/api/v1/get-order-history', {headers});
       setOrderHistory(res.data.data);
     };
     fetch();
