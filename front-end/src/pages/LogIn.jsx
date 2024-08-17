@@ -24,7 +24,7 @@ const LogIn = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:8080/api/v1/login',
+        'https://lit-wave.vercel.app/api/v1/login',
         values
       );
       dispatch(authActions.login());
