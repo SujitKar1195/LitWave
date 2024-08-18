@@ -6,13 +6,10 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.VITE_API_BASE_URL,
+        target: 'https://lit-wave-backend.vercel.app',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
-  },
-  build: {
-    outDir: 'build', // Ensure the build directory matches Vercel's expectations
   },
 });
