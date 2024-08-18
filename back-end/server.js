@@ -11,8 +11,9 @@ import cartRouter from './routes/cart.route.js';
 import orderRouter from './routes/orders.route.js';
 
 const corsOptions = {
-  origin: process.env.ORIGIN_URI,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  origin: 'https://i-task-nine.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  credentials: true,
 };
 
 const app = express();
