@@ -11,7 +11,7 @@ import cartRouter from './routes/cart.route.js';
 import orderRouter from './routes/orders.route.js';
 
 const corsOptions = {
-  origin: 'https://i-task-nine.vercel.app',
+  origin: process.env.ORIGIN_URI,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true,
 };
@@ -24,11 +24,11 @@ connectDB();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use('/api/v1', userRouter);
-app.use('/api/v1', bookRouter);
-app.use('/api/v1', favouriteRouter);
-app.use('/api/v1', cartRouter);
-app.use('/api/v1', orderRouter);
+app.use('/api/users', userRouter);
+app.use('/api/books', bookRouter);
+app.use('/api/favourites', favouriteRouter);
+app.use('/api/carts', cartRouter);
+app.use('/api/orders', orderRouter);
 
 app.listen(port, (err) => {
   if (err) {
