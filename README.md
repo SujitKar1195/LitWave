@@ -72,4 +72,4 @@ Check out the demo video of the Litwave Online Book Store to see it in action:
 - **Frontend:** Vite React
 - **Database:** MongoDB
 - **Authentication:** JWT, bcrypt
-- **Deployment:** Vercel, Netlify
+- **Deployment:** Vercel
