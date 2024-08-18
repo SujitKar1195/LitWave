@@ -20,7 +20,7 @@ const Favourites = () => {
       setFavouriteBooks(response.data.data);
     };
     fetch();
-  }, []);
+  }, [favouriteBooks]);
 
   return (
     <>
