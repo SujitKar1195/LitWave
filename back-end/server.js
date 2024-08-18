@@ -11,7 +11,7 @@ import cartRouter from './routes/cart.route.js';
 import orderRouter from './routes/orders.route.js';
 
 const corsOptions = {
-  origin: process.env.ORIGIN_URI,
+  origin: `${process.env.ORIGIN_URI}` || 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true,
 };
