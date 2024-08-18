@@ -29,7 +29,7 @@ const AddBook = () => {
       ) {
         alert('All fields are required.');
       } else {
-        const res = await axios.post('/api/v1/add-book', data, {headers});
+        const res = await axios.post('/api/books/add-book', data, {headers});
         setData({
           url: '',
           title: '',

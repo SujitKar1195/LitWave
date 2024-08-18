@@ -22,7 +22,7 @@ const LogIn = () => {
         alert('All fields are required.');
         return;
       }
-      const response = await axios.post('/api/v1/login', values);
+      const response = await axios.post('/api/users/login', values);
       dispatch(authActions.login());
       dispatch(authActions.changeRole(response.data.role));
       localStorage.setItem('id', response.data.id);

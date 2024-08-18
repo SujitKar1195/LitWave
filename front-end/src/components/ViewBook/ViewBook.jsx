@@ -16,7 +16,7 @@ const ViewBook = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(`/api/v1/get-book/${id}`);
+      const response = await axios.get(`/api/books/get-book/${id}`);
       const fetchedData = response.data;
       setData(fetchedData.data);
       //console.log(data);
@@ -32,18 +32,18 @@ const ViewBook = () => {
 
   const handleFavourite = async () => {
     const response = await axios.put(
-      '/api/v1/add-book-to-favourites',
+      '/api/favourites/add-book-to-favourites',
       {},
       {headers}
     );
     alert(response.data.message);
   };
   const handleCart = async () => {
-    const response = await axios.put('/api/v1/add-to-cart', {}, {headers});
+    const response = await axios.put('/api/carts/add-to-cart', {}, {headers});
     alert(response.data.message);
   };
   const handleDelete = async () => {
-    const res = await axios.delete('/api/v1/delete-book', {
+    const res = await axios.delete('/api/books/delete-book', {
       headers,
     });
     alert(res.data.message);

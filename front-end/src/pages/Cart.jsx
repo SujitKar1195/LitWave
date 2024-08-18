@@ -14,10 +14,7 @@ const Cart = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(
-        '/api/v1/get-cart-book',
-        {headers}
-      );
+      const res = await axios.get('/api/carts/get-cart-book', {headers});
       setCart(res.data.data);
     };
     fetch();
@@ -34,7 +31,7 @@ const Cart = () => {
   const deleteItem = async (id) => {
     headers.bookid = id;
     const res = await axios.put(
-      '/api/v1/remove-book-from-cart',
+      '/api/carts/remove-book-from-cart',
       {},
       {headers}
     );
@@ -43,7 +40,7 @@ const Cart = () => {
   const placeOrder = async () => {
     try {
       const res = await axios.post(
-        '/api/v1/place-order',
+        '/api/orders/place-order',
         {
           order: cart,
         },

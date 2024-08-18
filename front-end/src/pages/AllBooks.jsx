@@ -6,9 +6,7 @@ const AllBooks = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        '/api/v1/get-all-books'
-      );
+      const response = await axios.get('/api/books/get-all-books');
       const fetchedData = response.data;
       setData(fetchedData.data);
     };

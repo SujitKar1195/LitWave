@@ -27,12 +27,11 @@ const SignUp = () => {
         return;
       }
 
-      const response = await axios.post(
-        '/api/v1/signup',
-        values
-      );
+      const response = await axios.post('/api/users/signup', values);
+      alert('Signed Up Successfully');
       navigate('/login');
     } catch (error) {
+      alert('SignUp Error')
       console.log('error: ', error);
     }
   };

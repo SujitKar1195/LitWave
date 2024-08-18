@@ -10,7 +10,7 @@ const BookCard = ({data, favourite}) => {
 
   const handleRemoveBook = async () => {
     const response = await axios.put(
-      '/api/v1/remove-book-from-favourites',
+      '/api/books/remove-book-from-favourites',
       {},
       {headers}
     );

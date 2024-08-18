@@ -10,6 +10,10 @@
     {
       "src": "/api/(.*)",
       "dest": "https://lit-wave-backend.vercel.app/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

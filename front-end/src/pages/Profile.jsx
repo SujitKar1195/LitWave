@@ -14,10 +14,7 @@ const Profile = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        '/api/v1/get-user-info',
-        {headers}
-      );
+      const response = await axios.get('/api/users/get-user-info', {headers});
       setProfile(response.data);
     };
     fetch();
