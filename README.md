@@ -1,4 +1,4 @@
-# [Litwave Online Book Store](https://litwave.vercel.app)
+# [Litwave Online Book Store]
 
 Litwave is an online platform where users can explore, purchase, and manage books. The store features both user and admin functionalities, providing a seamless experience for browsing and purchasing books.
 
