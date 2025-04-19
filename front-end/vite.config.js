@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://lit-wave-backend.vercel.app',
+        target: 'backend endpoint',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
